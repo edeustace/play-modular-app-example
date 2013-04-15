@@ -1,0 +1,10 @@
+
+-> /web    webPublic.Routes
+-> /api    api.Routes
+-> /admin  webAdmin.Routes
+
+GET /     controllers.Application.index
+
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+

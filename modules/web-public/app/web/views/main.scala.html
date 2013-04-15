@@ -1,0 +1,16 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@web.controllers.routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@web.controllers.routes.Assets.at("images/favicon.png")">
+        <script src="@web.controllers.routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <script src="@web.controllers.routes.Assets.at("javascripts/hello-world.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        @content
+    </body>
+</html>
