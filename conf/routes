@@ -3,8 +3,8 @@
 -> /api    api.Routes
 -> /admin  webAdmin.Routes
 
-GET /     controllers.Application.index
+GET /     web.controllers.Application.index
 
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file               web.controllers.Assets.at(path="/public/web-public", file)
 
 
