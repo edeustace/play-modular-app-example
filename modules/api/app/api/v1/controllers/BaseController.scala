@@ -6,14 +6,14 @@ import play.api.libs.json._
 import common.models.Dao
 import play.api.libs.json.JsSuccess
 import scala.Some
-import api.v1.controllers.auth.Authenticator
+import api.v1.controllers.auth.AuthActionBuilder
 import common.validators.Validator
 import common.identity.User
 
 class BaseController[Entity](
                               dao: Dao[Entity],
                               format: Format[Entity],
-                              authenticator: Authenticator[AnyContent, User],
+                              builder: AuthActionBuilder[AnyContent, User],
                               validator: Validator[Entity, User]) extends Controller with Crudable[ObjectId, Action[AnyContent]] {
 
   private def parseEntity(request: Request[AnyContent]): Option[Entity] = request.body.asJson match {
@@ -26,7 +26,7 @@ class BaseController[Entity](
     case _ => None
   }
 
-  def create2() = authenticator.authenticate(parse.anyContent)("create2", {
+  def create2() = builder.ActionWithContext(parse.anyContent)("create2", {
     (user, request) => {
       for {
         entity <- parseEntity(request)

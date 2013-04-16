@@ -4,9 +4,9 @@ import play.api.mvc._
 import scala.Some
 import common.identity.User
 
-object MockAuthenticator extends Authenticator[AnyContent, User] {
+object MockAuthenticator extends AuthActionBuilder[AnyContent, User] {
 
-  def authenticate(p: BodyParser[AnyContent])(action: String, fn: (User, Request[AnyContent]) => Result) = Action(p) {
+  def ActionWithContext(p: BodyParser[AnyContent])(action: String, fn: (User, Request[AnyContent]) => Result) = Action(p) {
     r =>
 
       def getUser(r: Request[AnyContent]): Option[User] = {
