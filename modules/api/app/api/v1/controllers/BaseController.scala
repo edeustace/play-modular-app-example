@@ -13,7 +13,7 @@ import common.identity.User
 class BaseController[Entity](
                               dao: Dao[Entity],
                               format: Format[Entity],
-                              builder: AuthActionBuilder[AnyContent, User],
+                              actionBuilder: AuthActionBuilder[AnyContent, User],
                               validator: Validator[Entity, User]) extends Controller with Crudable[ObjectId, Action[AnyContent]] {
 
   private def parseEntity(request: Request[AnyContent]): Option[Entity] = request.body.asJson match {
@@ -26,7 +26,7 @@ class BaseController[Entity](
     case _ => None
   }
 
-  def create2() = builder.ActionWithContext(parse.anyContent)("create2", {
+  def create2() = actionBuilder.ActionWithContext(parse.anyContent)("create2", {
     (user, request) => {
       for {
         entity <- parseEntity(request)
