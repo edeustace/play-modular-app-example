@@ -10,7 +10,7 @@ import common.context._
 
 case class Item(title: String, id: ObjectId = new ObjectId())
 
-object Item {
+object Item extends Dao[Item] {
 
   private object Dao extends ModelCompanion[Item, ObjectId] {
     val collection = se.radley.plugin.salat.mongoCollection("items")
