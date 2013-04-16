@@ -1,1 +1,0 @@
-# The Qti Library

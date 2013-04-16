@@ -2,8 +2,8 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.index
-
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+POST    /v1/items       api.v1.controllers.Items.create()
+GET     /v1/items/:id   api.v1.controllers.Items.read(id:ObjectId)
+PUT     /v1/items/:id   api.v1.controllers.Items.update(id:ObjectId)
+DELETE  /v1/items/:id   api.v1.controllers.Items.delete(id:ObjectId)
+GET     /v1/items       api.v1.controllers.Items.list()
