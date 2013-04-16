@@ -3,7 +3,7 @@ package api.v1.controllers
 import org.bson.types.ObjectId
 import play.api.mvc.{Request, Controller, AnyContent, Action}
 import play.api.libs.json._
-import common.models.{Dao, Item}
+import common.models.Dao
 import scala.Some
 import play.api.libs.json.JsSuccess
 
