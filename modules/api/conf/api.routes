@@ -3,6 +3,7 @@
 # ~~~~
 
 POST    /v1/items       api.v1.controllers.Items.create()
+POST    /v1/items/create2       api.v1.controllers.Items.create2()
 GET     /v1/items/:id   api.v1.controllers.Items.read(id:ObjectId)
 PUT     /v1/items/:id   api.v1.controllers.Items.update(id:ObjectId)
 DELETE  /v1/items/:id   api.v1.controllers.Items.delete(id:ObjectId)
